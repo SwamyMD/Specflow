@@ -23,5 +23,15 @@
 		{
 			return FirstNumber / SecondNumber;
 		}
+
+		public int Calc(CalcType calcType)
+		{
+			switch (calcType)
+			{
+				case CalcType.Add: return Add();
+				case CalcType.Subtract: return Subtract();
+				default: return 0;
+			}
+		}
 	}
 }

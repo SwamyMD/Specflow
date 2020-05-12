@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using TechTalk.SpecFlow;
+using TechTalk.SpecFlow.Assist;
 using Xunit;
 
 namespace Calculator.Specs
@@ -10,14 +11,35 @@ namespace Calculator.Specs
 		private Calculator calc = new Calculator();
 		private int result;
 
-		[Given(@"I have entered following attributes into the calculator")]
-		public void GivenIHaveEnteredFollowingAttributesIntoTheCalculator(Table table)
+		[Given(@"I have entered following attributes into calc and using weakly typed data")]
+		public void GivenWeeklyTypedDataExample(Table table)
 		{
+			//Weakly Typed
 			var firstNumber = table.Rows.First(row => row["attribute"] == "firstNumber")["value"];
 			var secondNumber = table.Rows.First(row => row["attribute"] == "secondNumber")["value"];
 
 			calc.FirstNumber = int.Parse(firstNumber);
 			calc.SecondNumber = int.Parse(secondNumber);
+		}
+
+		[Given(@"I have entered following attributes into cal and using strongly typed data")]
+		public void GivenStronglyTypedDataExample(Table table)
+		{
+			//Strongly Typed
+			var calcAttribute = table.CreateInstance<CalcAttribute>();
+
+			calc.FirstNumber = calcAttribute.FirstNumber;
+			calc.SecondNumber = calcAttribute.SecondNumber;
+		}
+
+		[Given(@"I have entered following attributes into cal and using dynamic typed data")]
+		public void GivenDynamicTypedDataExample(Table table)
+		{
+			//dynamic Typed
+			dynamic calcAttribute = table.CreateDynamicInstance();
+
+			calc.FirstNumber = calcAttribute.firstNumber;
+			calc.SecondNumber = calcAttribute.secondNumber;
 		}
 
 		[When(@"I press multiply")]

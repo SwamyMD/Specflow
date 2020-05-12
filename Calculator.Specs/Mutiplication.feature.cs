@@ -81,13 +81,13 @@ namespace Calculator.Specs
             this.TestTearDown();
         }
         
-        [Xunit.SkippableFactAttribute(DisplayName="Multiply two numbers using data table")]
+        [Xunit.SkippableFactAttribute(DisplayName="Multiply two numbers using weakly typed data table")]
         [Xunit.TraitAttribute("FeatureTitle", "Multiplication")]
-        [Xunit.TraitAttribute("Description", "Multiply two numbers using data table")]
-        public virtual void MultiplyTwoNumbersUsingDataTable()
+        [Xunit.TraitAttribute("Description", "Multiply two numbers using weakly typed data table")]
+        public virtual void MultiplyTwoNumbersUsingWeaklyTypedDataTable()
         {
             string[] tagsOfScenario = ((string[])(null));
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Multiply two numbers using data table", null, ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Multiply two numbers using weakly typed data table", null, ((string[])(null)));
 #line 6
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -118,7 +118,7 @@ this.ScenarioInitialize(scenarioInfo);
                             "secondNumber",
                             "3"});
 #line 7
- testRunner.Given("I have entered following attributes into the calculator", ((string)(null)), table1, "Given ");
+ testRunner.Given("I have entered following attributes into calc and using weakly typed data", ((string)(null)), table1, "Given ");
 #line hidden
 #line 11
  testRunner.When("I press multiply", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
@@ -130,19 +130,14 @@ this.ScenarioInitialize(scenarioInfo);
             this.ScenarioCleanup();
         }
         
-        [Xunit.SkippableTheoryAttribute(DisplayName="Multiply two numbers using scenario outline and data table")]
+        [Xunit.SkippableFactAttribute(DisplayName="Multiply two numbers using strongly typed data table")]
         [Xunit.TraitAttribute("FeatureTitle", "Multiplication")]
-        [Xunit.TraitAttribute("Description", "Multiply two numbers using scenario outline and data table")]
-        [Xunit.InlineDataAttribute("2", "1", "2", new string[0])]
-        [Xunit.InlineDataAttribute("2", "2", "4", new string[0])]
-        [Xunit.InlineDataAttribute("2", "3", "6", new string[0])]
-        [Xunit.InlineDataAttribute("2", "4", "8", new string[0])]
-        [Xunit.InlineDataAttribute("2", "5", "10", new string[0])]
-        public virtual void MultiplyTwoNumbersUsingScenarioOutlineAndDataTable(string firstNumber, string secondNumber, string multiplicationResult, string[] exampleTags)
+        [Xunit.TraitAttribute("Description", "Multiply two numbers using strongly typed data table")]
+        public virtual void MultiplyTwoNumbersUsingStronglyTypedDataTable()
         {
-            string[] tagsOfScenario = exampleTags;
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Multiply two numbers using scenario outline and data table", null, exampleTags);
-#line 15
+            string[] tagsOfScenario = ((string[])(null));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Multiply two numbers using strongly typed data table", null, ((string[])(null)));
+#line 14
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -167,17 +162,120 @@ this.ScenarioInitialize(scenarioInfo);
                             "value"});
                 table2.AddRow(new string[] {
                             "firstNumber",
-                            string.Format("{0}", firstNumber)});
+                            "2"});
                 table2.AddRow(new string[] {
                             "secondNumber",
-                            string.Format("{0}", secondNumber)});
-#line 16
- testRunner.Given("I have entered following attributes into the calculator", ((string)(null)), table2, "Given ");
+                            "3"});
+#line 15
+ testRunner.Given("I have entered following attributes into cal and using strongly typed data", ((string)(null)), table2, "Given ");
 #line hidden
-#line 20
+#line 19
  testRunner.When("I press multiply", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 21
+#line 20
+ testRunner.Then("the multiplication result should be 6 on the screen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.SkippableFactAttribute(DisplayName="Multiply two numbers using dynamic typed data table")]
+        [Xunit.TraitAttribute("FeatureTitle", "Multiplication")]
+        [Xunit.TraitAttribute("Description", "Multiply two numbers using dynamic typed data table")]
+        public virtual void MultiplyTwoNumbersUsingDynamicTypedDataTable()
+        {
+            string[] tagsOfScenario = ((string[])(null));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Multiply two numbers using dynamic typed data table", null, ((string[])(null)));
+#line 22
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            bool isScenarioIgnored = default(bool);
+            bool isFeatureIgnored = default(bool);
+            if ((tagsOfScenario != null))
+            {
+                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((this._featureTags != null))
+            {
+                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((isScenarioIgnored || isFeatureIgnored))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+                TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
+                            "attribute",
+                            "value"});
+                table3.AddRow(new string[] {
+                            "firstNumber",
+                            "2"});
+                table3.AddRow(new string[] {
+                            "secondNumber",
+                            "3"});
+#line 23
+ testRunner.Given("I have entered following attributes into cal and using dynamic typed data", ((string)(null)), table3, "Given ");
+#line hidden
+#line 27
+ testRunner.When("I press multiply", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 28
+ testRunner.Then("the multiplication result should be 6 on the screen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.SkippableTheoryAttribute(DisplayName="Multiply two numbers using scenario outline and data table")]
+        [Xunit.TraitAttribute("FeatureTitle", "Multiplication")]
+        [Xunit.TraitAttribute("Description", "Multiply two numbers using scenario outline and data table")]
+        [Xunit.InlineDataAttribute("2", "1", "2", new string[0])]
+        [Xunit.InlineDataAttribute("2", "2", "4", new string[0])]
+        [Xunit.InlineDataAttribute("2", "3", "6", new string[0])]
+        [Xunit.InlineDataAttribute("2", "4", "8", new string[0])]
+        [Xunit.InlineDataAttribute("2", "5", "10", new string[0])]
+        public virtual void MultiplyTwoNumbersUsingScenarioOutlineAndDataTable(string firstNumber, string secondNumber, string multiplicationResult, string[] exampleTags)
+        {
+            string[] tagsOfScenario = exampleTags;
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Multiply two numbers using scenario outline and data table", null, exampleTags);
+#line 30
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            bool isScenarioIgnored = default(bool);
+            bool isFeatureIgnored = default(bool);
+            if ((tagsOfScenario != null))
+            {
+                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((this._featureTags != null))
+            {
+                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((isScenarioIgnored || isFeatureIgnored))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+                TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
+                            "attribute",
+                            "value"});
+                table4.AddRow(new string[] {
+                            "firstNumber",
+                            string.Format("{0}", firstNumber)});
+                table4.AddRow(new string[] {
+                            "secondNumber",
+                            string.Format("{0}", secondNumber)});
+#line 31
+ testRunner.Given("I have entered following attributes into calc and using weakly typed data", ((string)(null)), table4, "Given ");
+#line hidden
+#line 35
+ testRunner.When("I press multiply", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 36
  testRunner.Then(string.Format("the multiplication result should be {0} on the screen", multiplicationResult), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }

@@ -1,4 +1,4 @@
-﻿Feature: Subtraction
+﻿Feature: Subtraction using scenario outline
 	As a mathematician
 	I want to input two numbers
 	In order to display subtraction result on screen
